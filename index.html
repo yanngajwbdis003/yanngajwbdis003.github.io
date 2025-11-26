@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica Nan Yang </title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fcfcfc;
+        }
+        
+        header {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 30px;
+            align-items: center;
+        }
+        
+        .header-text { flex: 1; }
+        
+        h1 { margin: 0 0 10px 0; font-size: 2.4em; letter-spacing: -0.5px; }
+        h2 { font-size: 1.4em; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-top: 40px; color: #1a1a1a; }
+        h3 { font-size: 1.1em; margin-bottom: 5px; color: #000; font-weight: 600; }
+        
+        p { margin-bottom: 15px; }
+        
+        a { color: #0056b3; text-decoration: none; border-bottom: 1px dotted #0056b3; }
+        a:hover { border-bottom: 1px solid #0056b3; }
+        
+        /* 照片样式 */
+        .avatar { 
+            width: 180px; 
+            height: 180px; 
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+
+        ul { padding-left: 20px; color: #444; }
+        li { margin-bottom: 8px; }
+        
+        .tag { 
+            display: inline-block; 
+            background: #eef4fa; 
+            color: #2c5282;
+            padding: 2px 10px; 
+            border-radius: 12px; 
+            font-size: 0.8em; 
+            margin-right: 6px;
+            font-weight: 500;
+        }
+
+        .experience-item { margin-bottom: 25px; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .exp-date { color: #888; font-size: 0.9em; font-family: monospace;}
+        .exp-role { font-style: italic; color: #666; margin-bottom: 5px; }
+
+        footer { margin-top: 60px; color: #999; font-size: 0.85em; border-top: 1px solid #eaeaea; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-text">
+            <h1>Monica Nan Yang</h1>
+            <p style="font-size: 1.1em; color: #555;">
+                <strong>CS Undergraduate & Researcher</strong><br>
+                University of British Columbia (UBC)
+            </p>
+            <p>
+                Email: <a href="mailto:yangn003@student.ubc.ca">yangn003@student.ubc.ca</a><br>
+                <a href="https://linkedin.com/in/nan-monica-yang-409018214">LinkedIn</a> | 
+                <a href="path/to/cv.pdf">Download CV</a>
+            </p>
+            <div>
+                <span class="tag">Computational Biology</span>
+                <span class="tag">Genomics</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Neuroscience</span>
+            </div>
+        </div>
+        <img src="photo.jpg" alt="Monica Nan Yang" class="avatar">
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a final-year undergraduate student in <strong>Computer Science</strong> at the <a href="https://www.ubc.ca/">University of British Columbia</a> (Vancouver), where I maintain a CGPA of <strong>4.30/4.33</strong>. 
+        </p>
+        <p>
+            My research interest lies at the intersection of <strong>Computer Science and Biology</strong>. I am passionate about developing computational methods to solve complex biological problems, ranging from <strong>genomic data analysis</strong> to <strong>clinical prediction models</strong>.
+        </p>
+        <p>
+            I have been fortunate to conduct research internationally, including analyzing Nanopore metagenomic data at <strong>A*STAR (Singapore)</strong> , decoding brain signals at <strong>ATR (Japan)</strong> , and applying Large Language Models (LLMs) to clinical data at <strong>UBC</strong>[cite: 23].
+        </p>
+        <p>
+            <strong>I am actively seeking Ph.D. opportunities for Fall 2026.</strong>
+        </p>
+    </section>
+
+    <section id="news">
+        <h2>News & Updates</h2>
+        <ul>
+            <li><strong>[Sep 2025]</strong> Started serving as a Teaching Assistant for <em>CPSC 404: Advanced Relational Databases</em> at UBC[cite: 42].</li>
+            <li><strong>[July 2025]</strong> Presented a poster on EEG motor imagery decoding at the <em>International Symposium on Decoded Neurofeedback</em> in Nara, Japan[cite: 36].</li>
+            <li><strong>[May 2025]</strong> Joined A*STAR Genome Institute of Singapore as a Research Intern[cite: 18].</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Publications & Posters</h2>
+        <div class="experience-item">
+            <strong>Athletic performance predicted from mental motor imagery of source localized EEG.</strong><br>
+            Callan, D., Wu, Y., <u>Yang, M.</u>, Laguerta, J., Miyata, I., & Ishii, S.<br>
+            <span style="color: #666;">International Symposium on Decoded Neurofeedback, Nara Kasuga International Forum, July 2025.</span> [cite: 37]
+        </div>
+    </section>
+
+    <section id="research">
+        <h2>Research Experience</h2>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <h3>Genomics & Bioinformatics Research</h3>
+                <span class="exp-date">May 2025 – Aug 2025</span>
+            </div>
+            <div class="exp-role">Research Intern, A*STAR Genome Institute of Singapore (Prof. Niranjan Nagarajan's Lab)</div>
+            <ul>
+                <li>Developed a modular <strong>Snakemake pipeline</strong> for processing Nanopore metagenomic data, focusing on basecalling and assembly.</li>
+                <li>Benchmarked assembly strategies to improve contig continuity and integrated protein annotation modules to identify modification-associated genes[cite: 20, 22].</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <h3>Clinical LLM Evaluation</h3>
+                <span class="exp-date">Jan 2025 – Apr 2025</span>
+            </div>
+            <div class="exp-role">Research Student, UBC Data Management and Mining Lab (Dr. Rachel Pottinger)</div>
+            <ul>
+                <li>Evaluated zero-shot capabilities of <strong>LLAMA-3</strong> for ICU mortality prediction using MIMIC-III time-series data.</li>
+                <li>Investigated limitations of general-purpose LLMs in clinical reasoning, particularly regarding temporal awareness and domain drift[cite: 28].</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <h3>Neuroscience & Machine Learning</h3>
+                <span class="exp-date">July 2024 – Dec 2024</span>
+            </div>
+            <div class="exp-role">Research Intern, ATR Brain Information Communication Research Lab (Japan)</div>
+            <ul>
+                <li>Built an <strong>SVM classification pipeline</strong> for fMRI connectivity matrices to decode mental imagery tasks.</li>
+                <li>Automated preprocessing workflows using MATLAB/CONN and benchmarked EEG features for cognitive performance prediction[cite: 34, 35].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="teaching">
+        <h2>Teaching Experience</h2>
+        <ul>
+            <li>
+                <strong>CPSC 404: Advanced Relational Databases</strong> (Fall 2025) - <em>Teaching Assistant</em> [cite: 42]<br>
+                Supporting lectures and clarifying advanced database concepts.
+            </li>
+            <li>
+                <strong>CPSC 304: Introduction to Relational Databases</strong> (Spring 2025) - <em>Teaching Assistant</em> [cite: 43]<br>
+                Led 6 student groups through full-cycle database design projects and SQL implementation.
+            </li>
+            <li>
+                <strong>CPSC 110: Systematic Programming</strong> (2022, 2023) - <em>Teaching Assistant</em> [cite: 49]<br>
+                Facilitated lab sections for a cohort of 800+ students, teaching functional programming concepts.
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Monica Nan Yang. Last updated: November 2025.</p>
+    </footer>
+
+</body>
+</html>
