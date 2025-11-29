@@ -4,66 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monica (Nan) Yang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7; 
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            background-color: #fcfcfc;
-        }
-        
+ /* --- 自定义图片背景 --- */
+body {
+    /* 这里引用你的图片 */
+    background-image: url('pic/background.jpg');
+    
+    /* 关键设置：让图片铺满屏幕，且不随滚动条移动 */
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    
+    /* 这一行是给图片加一点点灰蒙蒙的遮罩，防止背景太花哨抢了文字的戏 (可选) */
+    /* background-color: rgba(0,0,0,0.1); */
+    /* background-blend-mode: overlay; */
+
+    /* 保持原来的布局设置 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    
+    /* 居中布局 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* 删掉之前的 @keyframes gradientBG ... 那个动画代码块，因为用图片就不需要动画了 */
+/* 中间白纸卡片的样式 (同上) */
+.paper-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 850px;
+    padding: 60px 80px;
+    border-radius: 4px; /* 这里方一点，更像论文 */
+    border: 1px solid #eaeaea; /* 加一个细边框 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 768px) {
+    body { padding: 0; }
+    .paper-card { border-radius: 0; padding: 40px 20px; border: none; }
+}
+
+        /* --- 3. Header & Typography --- */
         header {
             display: flex;
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             border-bottom: 1px solid #eaeaea;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
             align-items: center;
         }
-        
+
         .header-text { flex: 1; }
-        
+
         h1 { margin: 0 0 10px 0; font-size: 2.2em; letter-spacing: -0.5px; }
-        h2 { font-size: 1.3em; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-top: 50px; color: #111; font-weight: 600; }
+        h2 { font-size: 1.3em; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-top: 30px; color: #111; font-weight: 600; }
         h3 { font-size: 1.05em; margin-bottom: 5px; color: #222; font-weight: 600; }
-        
+
         p { margin-bottom: 18px; }
-        
+
         a { color: #0066cc; text-decoration: none; border-bottom: 1px dotted #0066cc; transition: all 0.2s; }
         a:hover { border-bottom: 1px solid #0066cc; background-color: #eef4fa; }
-        
+
         .avatar { 
-            width: 160px; 
-            height: 160px; 
-            border-radius: 50%; 
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 1px solid #eee; 
+            border: 1px solid #eee;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         ul { padding-left: 20px; color: #555; }
         li { margin-bottom: 10px; }
-        
 
         .tag { 
-            display: inline-block; 
-            background: #f4f4f4; 
+            display: inline-block;
+            background: #f4f4f4;
             color: #555;
-            padding: 3px 10px; 
-            border-radius: 6px; 
-            font-size: 0.85em; 
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.85em;
             margin-right: 8px;
             margin-top: 5px;
         }
 
-        .experience-item { margin-bottom: 25px; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .exp-date { color: #999; font-size: 0.85em; font-family: monospace;}
-        .exp-role { font-style: italic; color: #666; font-size: 0.95em; margin-bottom: 8px; }
+        /* --- 4. Timeline Styles (时间轴) --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #e0e0e0;
+            margin-top: 30px;
+        }
 
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -39px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border: 3px solid #0066cc;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background-color: #0066cc;
+            transform: scale(1.2);
+        }
+
+        .timeline-date {
+            font-size: 0.85em;
+            color: #888;
+            font-family: monospace;
+            margin-bottom: 5px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-location {
+            display: inline-block;
+            background-color: #f0f4f8;
+            color: #4a5568;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timeline-content h3 {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #2d3748;
+        }
+
+        .timeline-desc {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* --- 5. Social Icons --- */
+        .social-links {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: #555;
+            font-size: 1.5em;
+            transition: all 0.2s ease;
+            border-bottom: none;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+            transform: translateY(-3px);
+            background-color: transparent;
+        }
+
+        /* --- 6. Interests --- */
         .interests-container {
             display: flex;
             flex-wrap: wrap;
@@ -79,110 +200,140 @@
             color: #444;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
-
+        
         footer { margin-top: 80px; color: #aaa; font-size: 0.8em; border-top: 1px solid #eaeaea; padding-top: 30px; text-align: center;}
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-text">
-            <h1>Monica Nan Yang</h1>
-            <p style="font-size: 1.1em; color: #666;">
-                Undergraduate Researcher @ UBC Computer Science
+    <div class="paper-card">
+
+        <header>
+            <div class="header-text">
+                <h1>Monica Nan Yang</h1>
+                <p style="font-size: 1.1em; color: #666;">
+                    Undergraduate Researcher @ UBC Computer Science
+                </p>
+                <div class="social-links">
+                    <a href="mailto:yangn003@student.ubc.ca" title="Email Me">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/nan-monica-yang-409018214" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/monicananyang" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div>
+                    <span class="tag">Computational Biology</span>
+                    <span class="tag">Genomics</span>
+                    <span class="tag">Machine Learning</span>
+                </div>
+            </div>
+            <img src="pic/photo.jpg" alt="Monica Nan Yang" class="avatar">
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Monica Yang, or you can call me Nan (yes, <code>NaN</code>). I am originally from Shenzhen, China.</p>
+            <p>
+                I am currently a final-year Computer Science student at the 
+                <a href="https://www.ubc.ca/">University of British Columbia</a> in Vancouver.
+                My undergraduate journey has been fortunately shaped by three research homes and three mentors:
+                <a href="https://sites.google.com/site/mauriciolisboaperez/">Dr. Mauricio Perez</a> at Singapore A*STAR,
+                <a href="https://www.linkedin.com/in/daniel-callan-26624621/">Dr. Daniel Callan</a> at <a href="https://www.atr.jp/index_e.html">ATR</a> Japan,
+                and <a href="https://www.cs.ubc.ca/~rap/">Professor Rachel Pottinger</a> at UBC.
+                Each experience offered unique perspectives that drove me to pursue research in computational biology and machine learning.
             </p>
             <p>
-                Email: <a href="mailto:yangn003@student.ubc.ca">yangn003@student.ubc.ca</a> / 
-                <a href="https://linkedin.com/in/nan-monica-yang-409018214">LinkedIn</a>
+                I enjoy wrangling complex data! I am particularly interested in <strong>representation learning</strong> for biological models—developing methods that can integrate signals from different modalities (like scRNA-seq and spatial transcriptomics) and extract meaningful patterns across species.
             </p>
-            <div>
-                <span class="tag">Computational Biology</span>
-                <span class="tag">Genomics</span>
-                <span class="tag">Machine Learning</span>
+        </section>
+
+        <section id="news">
+            <h2>News</h2>
+            <ul>
+                <li><strong>[Sep 2025]</strong> Served as Teaching Assistant for <em>CPSC 404: Advanced Relational Databases</em>.</li>
+                <li><strong>[July 2025]</strong> Relavent work is presented at the <em>International Symposium on Decoded Neurofeedback</em> in Nara, Japan. 
+                    <a href="pic/DecNef2025CallanPoster.pdf" target="_blank" style="font-size: 0.9em; font-weight: bold;">[View Poster]</a>
+                </li>
+                <li><strong>[May 2025]</strong> Joined A*STAR Genome Institute of Singapore as a Research Intern. (Fun fact: I took 10+ flights across Asia in just four months this summer!)</li>
+                <li><strong>[Jan 2025]</strong> Served as Teaching Assistant for <em>CPSC 304: Introduction to Relational Databases</em>.</li>
+                <li><strong>[Jun 2024]</strong> Joined ATR Brain Information Communication Research Lab as a Research Intern in Kyoto, Japan.</li>
+                <li><strong>[Sep 2023]</strong> Served as Teaching Assistant for <em>CPSC 110: Systematic Programming</em>.</li>
+            </ul>
+        </section>
+
+        <section id="research">
+            <h2>Research Journey</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Fall 2025</span>
+                    <div class="timeline-content">
+                        <span class="timeline-location">📍 Vancouver, Canada</span>
+                        <h3>Graduate-level Research Project</h3>
+                        <p class="timeline-desc">
+                            Collaborated on developing a generative modeling framework (extending totalVI) to integrate single-cell RNA, protein, and spatial coordinates from spatially resolved tissue datasets.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Summer 2025</span>
+                    <div class="timeline-content">
+                        <h3>Research Intern @ A*STAR Genome Institute of Singapore</h3>
+                        <span class="timeline-location">📍 Singapore</span>
+                        <p class="timeline-desc">
+                            Investigated non-canonical bases in viral metagenomics using nanopore sequencing data to uncover hidden genomic modifications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Spring 2025</span>
+                    <div class="timeline-content">
+                        <h3>CPSC 448 Directed Studies</h3>
+                        <span class="timeline-location">📍 Vancouver, Canada</span>
+                        <p class="timeline-desc">
+                            Evaluated the zero-shot reasoning capabilities of LLAMA-3 on complex clinical time-series data for ICU mortality prediction.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Fall 2024</span>
+                    <div class="timeline-content">
+                        <h3>Research Intern @ ATR Neural Info. Analysis Labs</h3>
+                        <span class="timeline-location">📍 Kyoto, Japan</span>
+                        <p class="timeline-desc">
+                            Investigated neural correlates of motor expertise (skateboarding) using source-localized EEG and fMRI connectivity data.
+                        </p>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <img src="photo2.jpg" alt="Monica Nan Yang" class="avatar">
-    </header>
+        </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hi, I'm Monica ;) Or you can call me Nan <strong>楠 (Nan)</strong>. I absolutely like my name because it's so versatile: in English, it sounds like the delicious Indian <em>Naan</em>; in Chinese, it refers to the precious <em>Nanmu</em> tree (Phoebe zhennan); and in my major, Computer Science, it stands for <code>NaN</code> (Not a Number).
-        </p>
-        <p>
-            I am originally from China, ShenZhen and currently a final-year Computer Science student at the <a href="https://www.ubc.ca/">University of British Columbia</a> in Vancouver. 
-        </p>
-        <p>
-            Currently, I am particularly interested in learning representations from biological data that generalize across species, signals, and modalities.      </p>
-        <p>
-            I have been incredibly fortunate to be mentored by <a href="#">Dr. Mauricio Perez</a> at A*STAR in Singapore, <a href="#">Dr. Daniel Callan</a> at ATR Japan, and <a href="#">Dr. Rachel Pottinger</a> at UBC. Their guidance has been instrumental in shaping my research path.
-        </p>
-    </section>
-
-    <section id="news">
-        <h2>News</h2>
-        <ul>
-            <li><strong>[Sep 2025]</strong> Started TA-ing for <em>CPSC 404: Advanced Relational Databases</em>.</li>
-            <li><strong>[July 2025]</strong> Presented a poster at the <em>International Symposium on Decoded Neurofeedback</em> in Nara, Japan.</li>
-            <li><strong>[May-Aug 2025]</strong> Joined A*STAR Genome Institute of Singapore as a Research Intern (Singapore). I have over 10+ flights in four months during this summer (mainly travelling!). </li>
-            <li><strong>[Jun-Dec 2025]</strong> Joined ATR Brain Information Communication Research Lab as a Research Intern (Japan Kyoto). It's definitely a wonderful experience, my emotional anchor. I am planning to update some blogs about this (even it's been a year haha) </li>
-        </ul>
-    </section>
-
-    <section id="research">
-        <h2>Research Experience</h2>
-
-        <div class="experience-item">
-            <div class="exp-header">
-                <h3>Genomics & Bioinformatics</h3>
-                <span class="exp-date">Singapore | Summer 2025</span>
+        <section id="interests">
+            <h2>Personal Interests</h2>
+            <p>I embrace the randomness of life. My 2026 resolution is to live and work in a brand new country during the summer break!</p>
+            <div class="interests-container">
+                <span class="interest-item">✈️ Travelling</span>
+                <span class="interest-item">☕ Coffee & Cocktails</span>
+                <span class="interest-item">🔮 Tarot Reading</span>
+                <span class="interest-item">🎨 Painting</span>
             </div>
-            <div class="exp-role">Research Intern @ A*STAR Genome Institute of Singapore</div>
-            <p>
-                Designed a modular Snakemake workflow for Nanopore metagenomic data to facilitate the large-scale discovery of viral DNA modifications.
-            </p>
-        </div>
+        </section>
 
-        <div class="experience-item">
-            <div class="exp-header">
-                <h3>Clinical LLM Evaluation</h3>
-                <span class="exp-date">Vancouver | Spring 2025</span>
-            </div>
-            <div class="exp-role">Research Student @ UBC Data Management and Mining Lab</div>
-            <p>
-                Evaluated the zero-shot reasoning capabilities of Large Language Models (LLAMA-3) on complex clinical time-series data for ICU mortality prediction.
-            </p>
-        </div>
+        <footer>
+            <p>&copy; 2025 Monica Nan Yang.</p>
+        </footer>
 
-        <div class="experience-item">
-            <div class="exp-header">
-                <h3>Neuroscience & ML</h3>
-                <span class="exp-date">Kyoto | Fall 2024</span>
-            </div>
-            <div class="exp-role">Research Intern @ ATR Brain Information Communication Research Lab</div>
-            <p>
-                Developed machine learning pipelines (SVM) to decode mental imagery tasks from fMRI connectivity matrices and EEG signals.
-            </p>
-        </div>
-    </section>
-
-    <section id="interests">
-        <h2>Personal Interests</h2>
-        <p>
-            I embrace the randomness of life. My 2026 new year resolution is living and working in a brand new country during summer; Learn Bartending! 
-        </p>
-        <div class="interests-container">
-            <span class="interest-item"> Travelling </span>
-            <span class="interest-item">🔮 Tarot Reading</span>
-            <span class="interest-item">☕ Drinking 🥂</span>
-            <span class="interest-item">🎨 Painting</span>
-            <span class="interest-item">🌗 I Ching (Yi Jing)</span>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Monica Nan Yang.</p>
-    </footer>
-
-</body>
+    </div> </body>
 </html>
