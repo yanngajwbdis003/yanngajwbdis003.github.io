@@ -7,22 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
- /* --- 自定义图片背景 --- */
 body {
-    /* 这里引用你的图片 */
+
     background-image: url('pic/background.jpg');
-    
-    /* 关键设置：让图片铺满屏幕，且不随滚动条移动 */
+
     background-size: cover; 
     background-position: center;
     background-attachment: fixed; 
     background-repeat: no-repeat;
-    
-    /* 这一行是给图片加一点点灰蒙蒙的遮罩，防止背景太花哨抢了文字的戏 (可选) */
-    /* background-color: rgba(0,0,0,0.1); */
-    /* background-blend-mode: overlay; */
-
-    /* 保持原来的布局设置 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.7;
     color: #333;
@@ -30,7 +22,7 @@ body {
     padding: 0;
     min-height: 100vh;
     
-    /* 居中布局 */
+
     display: flex;
     justify-content: center;
     align-items: flex-start; 
@@ -38,8 +30,7 @@ body {
     padding-bottom: 60px;
 }
 
-/* 删掉之前的 @keyframes gradientBG ... 那个动画代码块，因为用图片就不需要动画了 */
-/* 中间白纸卡片的样式 (同上) */
+
 .paper-card {
     background-color: #ffffff;
     width: 100%;
@@ -55,7 +46,7 @@ body {
     .paper-card { border-radius: 0; padding: 40px 20px; border: none; }
 }
 
-        /* --- 3. Header & Typography --- */
+
         header {
             display: flex;
             gap: 40px;
